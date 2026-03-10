@@ -316,7 +316,7 @@ const sndWin = new Audio('Sounds/Winning Sound.mp3');
 const sndTension = new Audio('Sounds/tension-scapes-dramatic-danger-distorted-brass-dark-whooshes-177771.mp3');
 
 // Configure looping ambients
-for (const s of [sndWater, sndForest, sndRocky, sndTension]) {
+for (const s of [sndWater, sndForest, sndRocky, sndDesert, sndTension]) {
   s.loop = true;
   s.volume = 0;
 }
@@ -458,7 +458,7 @@ function startGame() {
   document.getElementById('minimap').style.display = 'block';
   document.getElementById('enemy-warning').style.display = 'block';
   gameState = 'playing';
-  controls.lock();
+  try { controls.lock(); } catch(e) { console.warn('Pointer lock failed:', e); }
   startAmbientAudio();
 }
 
