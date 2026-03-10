@@ -1262,8 +1262,7 @@ function animate() {
   const newFeetY = newCamY - PLAYER_HEIGHT;
 
   // Find ground
-  const feetY = newCamY - PLAYER_HEIGHT;
-  const groundY = findGroundY(camera.position.x, camera.position.z, feetY);
+  const groundY = findGroundY(camera.position.x, camera.position.z, newFeetY);
 
   if (groundY !== null && newFeetY <= groundY && playerVelY <= 0) {
     // Land on ground
